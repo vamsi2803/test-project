@@ -1,0 +1,87 @@
+#left label frame
+        Left_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="Student Attendance Details",font=("times new roman",12,"bold"))
+        Left_frame.place(x=10,y=10,width=700,height=550)
+
+        img_left=Image.open(r"C:\Users\muneendra\Desktop\FACE RECOGNITION SYSTEM\Images\stanford.jpg")
+        img_left=img_left.resize((690,160),Image.ANTIALIAS)
+        self.photoimg_left=ImageTk.PhotoImage(img_left)
+
+        f_lbl=Label(Left_frame,image=self.photoimg_left)
+        f_lbl.place(x=5,y=0,width=690,height=160)
+
+        left_inside_frame=Frame(Left_frame,bd=2,relief=RIDGE,bg="white")
+        left_inside_frame.place(x=0,y=165,width=690,height=300)
+
+        #Label entry
+        #Attendance ID
+        studentId_label=Label( left_inside_frame,text="Student ID:",font=("times new roman",12,"bold"),bg="white")
+        studentId_label.grid(row=0,column=0,padx=10,pady=5,sticky=W)
+
+        studentId_entry=ttk.Entry( left_inside_frame,width=20,textvariable=self.var_atten_Id,font=("times new roman",12,))
+        studentId_entry.grid(row=0,column=1,padx=10,pady=5,sticky=W)
+
+        #Name
+        nameLabel=Label(left_inside_frame,text="Name:",font=("times new roman",12,"bold"),bg="white")
+        nameLabel.grid(row=1,column=0,padx=10,pady=5,sticky=W)
+
+        atten_name=ttk.Entry( left_inside_frame,width=20,textvariable=self.var_atten_Name,font=("times new roman",12,))
+        atten_name.grid(row=1,column=1,padx=10,pady=5,sticky=W)
+
+        #Department
+        depLabel=Label(left_inside_frame,text="Department:",font=("times new roman",12,"bold"),bg="white")
+        depLabel.grid(row=2,column=0,padx=10,pady=5,sticky=W)
+
+        atten_dep=ttk.Entry( left_inside_frame,width=20,textvariable=self.var_atten_Dep,font=("times new roman",12,))
+        atten_dep.grid(row=2,column=1,padx=10,pady=5,sticky=W)
+
+        #Date
+        dateLabel=Label(left_inside_frame,text="Date:",font=("times new roman",12,"bold"),bg="white")
+        dateLabel.grid(row=0,column=2,padx=10,pady=5,sticky=W)
+
+        atten_date=ttk.Entry( left_inside_frame,width=20,textvariable=self.var_atten_Date,font=("times new roman",12,))
+        atten_date.grid(row=0,column=3,padx=10,pady=5,sticky=W)
+
+        #Time
+        timeLabel=Label(left_inside_frame,text="Time:",font=("times new roman",12,"bold"),bg="white")
+        timeLabel.grid(row=1,column=2,padx=10,pady=5,sticky=W)
+
+        atten_time=ttk.Entry( left_inside_frame,width=20,textvariable=self.var_atten_Time,font=("times new roman",12,))
+        atten_time.grid(row=1,column=3,padx=10,pady=5,sticky=W)
+
+        #Attendance Status
+        attendanceLabel=Label(left_inside_frame,text="Attendance Status:",font=("times new roman",12,"bold"),bg="white")
+        attendanceLabel.grid(row=2,column=2,padx=10,pady=5,sticky=W)
+
+        self.atten_status=ttk.Combobox(left_inside_frame,font=("times new roman",10),state="readonly", width=24,textvariable=self.var_atten_Attendance)
+        self.atten_status["values"]=("Select","Present","Absent")
+        self.atten_status.current(0)
+        self.atten_status.grid(row=2,column=3,padx=10,pady=5,sticky=W)
+
+        #Buttons frame
+        btn_frame=Frame(left_inside_frame,bd=2,relief=RIDGE,bg="white")
+        btn_frame.place(x=0,y=200,width=685,height=80)    
+
+        save_btn=Button(btn_frame,text="Import csv",command=self.importCsv,width=18,font=("times new roman",12,"bold"),bg="blue",fg="white")   
+        save_btn.grid(row=1,column=0)
+
+        update_btn=Button(btn_frame,text="Export csv",command=self.exportCsv,width=18,font=("times new roman",12,"bold"),bg="blue",fg="white")   
+        update_btn.grid(row=1,column=1)
+
+        delete_btn=Button(btn_frame,text="Update",width=18,font=("times new roman",12,"bold"),bg="blue",fg="white")   
+        delete_btn.grid(row=1,column=2)
+
+        reset_btn=Button(btn_frame,text="Reset",width=18,command=self.reset_data,font=("times new roman",12,"bold"),bg="blue",fg="white")   
+        reset_btn.grid(row=1,column=3) 
+        #background image
+        """img3=Image.open(r"C:\Users\muneendra\Desktop\FACE RECOGNITION SYSTEM\Images\bgimg.png")
+        img3=img3.resize((1366,600),Image.ANTIALIAS)
+        self.photoimg3=ImageTk.PhotoImage(img3)
+
+        bg_img=Label(self.root,image=self.photoimg3)
+        bg_img.place(x=0,y=202,width=1366,height=600)
+
+        title_lbl=Label(bg_img,text="ATTENDANCE REPORT",font=("times new roman",30,"bold"),bg="white",fg="darkgreen")
+        title_lbl.place(x=0,y=0,width=1366,height=45)
+
+        main_frame=Frame(bg_img,bd=2,bg="white")
+        main_frame.place(x=5,y=50,width=1340,height=700)"""
